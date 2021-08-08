@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import ProductDataService from '../services/product.service'
 export default class CreateProduct extends Component {
 
     constructor(props) {
@@ -26,7 +27,15 @@ export default class CreateProduct extends Component {
     onSubmit(e) {
         e.preventDefault()
 
-        console.log("student successfully created!")
+        const productObject = {
+            name: this.state.name,
+            description: this.state.description
+        }
+
+        ProductDataService.create(productObject)
+            .then(res => console.log(res.data))
+
+        console.log("product successfully created!")
         console.log(`Name: ${this.state.name}`)
         console.log(`Description: ${this.state.description}`)
 

@@ -49,7 +49,7 @@ function App() {
                 <Switch>
                   <Route exact path="/" component={CreateProduct} />
                   <Route path="/create-product" component={CreateProduct} />
-                  <Route path="/edit-product" component={EditProduct} />
+                  <Route path="/edit-product/:id" component={EditProduct} />
                   <Route path="/product-list" component={ProductList} />
                 </Switch>
               </div>
